@@ -3,20 +3,24 @@ from collections import Counter, defaultdict
 import nibabel as nib
 import pandas as pd
 
-# folder z pobranymi plikami fMRI
-folder = Path(r"C:\Users\HP\fmri_tensor_project\abide_data\ABIDE_pcp\cpac\filt_global")
-files = list(folder.glob("*.nii.gz"))
+# ===== ścieżki lokalne =====
+BASE_DATA_DIR = Path(r"C:\Users\HP\Searches\abide_data")
+FMRI_DIR = BASE_DATA_DIR / "ABIDE_pcp" / "cpac" / "filt_global"
 
-print("Liczba subjectów:", len(files))
-
-# ===== znajdź lokalny plik fenotypowy =====
 candidate_csvs = [
-    Path(r"C:\Users\HP\fmri_tensor_project\abide_data\ABIDE_pcp\Phenotypic_V1_0b_preprocessed1.csv"),
+    BASE_DATA_DIR / "ABIDE_pcp" / "Phenotypic_V1_0b_preprocessed1.csv",
     Path("Phenotypic_V1_0b_preprocessed1.csv"),
     Path("abide_data/Phenotypic_V1_0b_preprocessed1.csv"),
     Path("abide_data/ABIDE_pcp/Phenotypic_V1_0b_preprocessed1.csv"),
 ]
 
+print("Folder danych fMRI:", FMRI_DIR)
+print("Czy folder istnieje:", FMRI_DIR.exists())
+
+files = list(FMRI_DIR.glob("*.nii.gz"))
+print("Liczba subjectów:", len(files))
+
+# ===== znajdź lokalny plik fenotypowy =====
 pheno_path = None
 for p in candidate_csvs:
     if p.exists():
@@ -31,7 +35,6 @@ else:
     print(f"\nUżywam lokalnego CSV: {pheno_path}")
     df = pd.read_csv(pheno_path)
 
-    # ujednolicenie FILE_ID do stringa
     if "FILE_ID" in df.columns:
         df["FILE_ID"] = df["FILE_ID"].astype(str)
 
