@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large neuroimaging / tensor data
+*.npy
+*.npz
+*.nii
+*.nii.gz
+*.h5
+*.hdf5
+*.pkl
+*.joblib
+
+# Local data folders
+data/
+datasets/
+abide_data/
+ABIDE_pcp/
+fmri_datasets/
+subjects/
+selected_paths.txt
+subject_index.csv
+
+# Generated results
+results_*/
+*.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
