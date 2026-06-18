@@ -1,0 +1,10 @@
+
+# Local ABIDE input data — kept only on this computer
+/61x73x61_falff_filt_noglobal_subjectwise/
+/61x73x61_reho_filt_noglobal_subjectwise/
+
+# Local raw ABIDE files and legacy root-level outputs
+/ABIDE_CPAC_3D_REHO_FALFF/
+/results_cp_logistic_als_falff_3d/
+/results_cp_logistic_block_glm_subjectwise/
+/results_cp_logistic_rank_W_fullres_61x73x61_T100/
