@@ -30,7 +30,6 @@ The analysed data include different neuroimaging representations, such as:
 
 * four-dimensional functional MRI data,
 * three-dimensional Regional Homogeneity (ReHo) maps,
-* three-dimensional fractional Amplitude of Low-Frequency Fluctuations (fALFF) maps.
 
 The classification task is:
 
