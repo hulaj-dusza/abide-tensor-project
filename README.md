@@ -170,11 +170,7 @@ The results should be interpreted as exploratory research outcomes rather than c
 ## Future work
 
 * Systematic comparison of CP ranks and regularization strengths.
-* Comparison of ReHo, fALFF, and 4D fMRI representations.
-* Extension to Tucker-based tensor regression.
-* Reconstruction and visualization of learned coefficient tensors.
 * Inclusion of demographic, clinical, and motion-related covariates.
-* Site harmonization and more rigorous nested cross-validation.
 * Comparison with additional machine learning baselines.
 
 ## Author
