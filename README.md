@@ -64,18 +64,44 @@ where $\mathcal{B}$ is a coefficient tensor, $\beta_0$ is the intercept, and $\s
 $$
 \sigma(z) = \frac{1}{1 + e^{-z}}
 $$
+For each subject, the input data are represented as a third-order tensor:
+
+```math
+\mathcal{X}_i \in \mathbb{R}^{p_1 \times p_2 \times p_3}
+```
+
+The model predicts the probability of belonging to the ASD group using logistic tensor regression:
+
+```math
+P(y_i = 1 \mid \mathcal{X}_i)
+=
+\sigma\left(
+\beta_0 +
+\left\langle \mathcal{X}_i, \mathcal{B} \right\rangle
+\right)
+```
+
+where $\mathcal{B}$ is the coefficient tensor, $\beta_0$ is the intercept, and $\sigma$ denotes the logistic sigmoid function:
+
+```math
+\sigma(z) = \frac{1}{1 + e^{-z}}
+```
 
 To reduce the number of parameters, the coefficient tensor is approximated using a CP decomposition:
 
-$$
+```math
 \mathcal{B}
 \approx
 \sum_{r=1}^{R}
-\lambda_r \,
-\mathbf{a}_r \circ \mathbf{b}_r \circ \mathbf{c}_r
-$$
+\mathbf{a}_r \circ
+\mathbf{b}_r \circ
+\mathbf{c}_r
+```
 
-where $R$ is the CP rank, $\lambda_r$ are component weights, and $\mathbf{a}_r$, $\mathbf{b}_r$, and $\mathbf{c}_r$ are factor vectors for the three tensor modes.
+where $R$ is the CP rank, and $\mathbf{a}_r$, $\mathbf{b}_r$, and $\mathbf{c}_r$ are factor vectors corresponding to the three tensor modes.
+
+In this implementation, the scale of each CP component is absorbed directly into the factor vectors, so no separate component weights $\lambda_r$ are used.
+
 
 The project includes experiments with:
 
