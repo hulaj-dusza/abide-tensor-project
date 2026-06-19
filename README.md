@@ -43,38 +43,39 @@ Raw neuroimaging data, NIfTI files, and subject-level NumPy arrays are not inclu
 ## Methods
 
 The main methodological focus is tensor regression, particularly CP-based logistic regression.
+For each subject, the input data are represented as a third-order tensor:
 
-For a participant-specific tensor:
+$$
+\mathcal{X}_i \in \mathbb{R}^{p_1 \times p_2 \times p_3}
+$$
 
-[
-\mathcal{X}_i \in \mathbb{R}^{p_1 \times p_2 \times p_3},
-]
+The model predicts the probability of ASD using logistic tensor regression:
 
-the model predicts the probability of ASD using:
-
-[
+$$
 P(y_i = 1 \mid \mathcal{X}_i)
-=============================
-
+=
 \sigma\left(
-\beta_0 +
-\langle \mathcal{X}_i, \mathcal{B} \rangle
-\right),
-]
+\beta_0 + \left\langle \mathcal{X}_i, \mathcal{B} \right\rangle
+\right)
+$$
 
-where (\mathcal{B}) is a coefficient tensor and (\sigma) is the logistic sigmoid function.
+where $\mathcal{B}$ is a coefficient tensor, $\beta_0$ is the intercept, and $\sigma$ is the logistic sigmoid function:
 
-To reduce the number of parameters, the coefficient tensor is approximated with a CP decomposition:
+$$
+\sigma(z) = \frac{1}{1 + e^{-z}}
+$$
 
-[
+To reduce the number of parameters, the coefficient tensor is approximated using a CP decomposition:
+
+$$
 \mathcal{B}
 \approx
 \sum_{r=1}^{R}
-\lambda_r
-\mathbf{a}_r \circ
-\mathbf{b}_r \circ
-\mathbf{c}_r.
-]
+\lambda_r \,
+\mathbf{a}_r \circ \mathbf{b}_r \circ \mathbf{c}_r
+$$
+
+where $R$ is the CP rank, $\lambda_r$ are component weights, and $\mathbf{a}_r$, $\mathbf{b}_r$, and $\mathbf{c}_r$ are factor vectors for the three tensor modes.
 
 The project includes experiments with:
 
