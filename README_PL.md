@@ -71,13 +71,12 @@ Aby ograniczyć liczbę parametrów, tensor współczynników jest aproksymowany
 \mathcal{B}
 \approx
 \sum_{r=1}^{R}
-\lambda_r
 \mathbf{a}_r \circ
 \mathbf{b}_r \circ
 \mathbf{c}_r
 ```
 
-gdzie $R$ oznacza rangę CP, $\lambda_r$ są wagami składowych, a $\mathbf{a}_r$, $\mathbf{b}_r$ i $\mathbf{c}_r$ są wektorami czynników odpowiadającymi kolejnym wymiarom tensora.
+gdzie $R$ oznacza rangę CP, a $\mathbf{a}_r$, $\mathbf{b}_r$ i $\mathbf{c}_r$ są wektorami czynników odpowiadającymi kolejnym wymiarom tensora. W tej implementacji skala każdej składowej CP jest zawarta bezpośrednio w wektorach czynników, dlatego nie wprowadzano osobnych wag $\lambda_r$.
 
 
 Projekt obejmuje eksperymenty z wykorzystaniem:
