@@ -168,5 +168,6 @@ Wyniki należy interpretować jako rezultaty eksploracyjne, a nie jako miarę ja
 ## Dalsze kierunki pracy
 
 * Systematyczne porównanie różnych rang CP i wartości regularyzacji.
+* Uwzględnienie zmiennych współzależnych demograficznych, klinicznych i związanych z ruchem.
 * Porównanie z dodatkowymi modelami uczenia maszynowego.
 
