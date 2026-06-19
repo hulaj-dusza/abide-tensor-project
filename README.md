@@ -99,7 +99,7 @@ The repository is organized into branches representing different stages of devel
 | `feature/cp-als-logistic`       | CP-ALS-inspired logistic regression experiments      |
 | `feature/cv-comparison`         | Cross-validation and model comparison                |
 | `feature/benchmark-flat-logreg` | Conventional voxel-wise logistic regression baseline |
-| `abide-3d-reho-falff`           | 3D ReHo and fALFF tensor classification experiments  |
+| `feature/cp-3d-als-logistic`    | 3D ReHo tensor classification experiments  |
 
 The available branches may evolve as the project develops.
 
